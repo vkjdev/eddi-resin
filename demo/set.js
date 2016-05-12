@@ -36,7 +36,7 @@ function exportPin(pin){
     const actual = GPIO[pin];
     if(!actual) throw new Error(`Pin ${pin} is not a valid gpio pin`);
     const gpioPath = createGpioDirPath(actual);
-    return fsPromises.stats(gpioPath)
+    return fsPromises.stat(gpioPath)
             .catch(err => {
                 const exportPath = `${GPIO_ROOT}/export`;
                 return fsPromises.write(exportPath, actual);

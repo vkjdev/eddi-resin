@@ -1,9 +1,13 @@
 'use strict';
 const fs = require('fs');
 
+const options = {
+	encoding : 'utf8'	
+};
+
 function read(path){
 	return new Promise((resolve, reject) => {
-		fs.readFile(path, (err, data) => {
+		fs.readFile(path, options, (err, data) => {
 			if(err) return reject(err);
 			resolve(data);
 		})
@@ -19,9 +23,9 @@ function write(path, data){
 	});
 }
 
-function stats(path){
+function stat(path){
 	return new Promise((resolve, reject) => {
-		fs.stats(path, (err, data) => {
+		fs.stat(path, (err, data) => {
 			if(err) return reject(err);
 			resolve(data);
 		});
@@ -31,5 +35,5 @@ function stats(path){
 module.exports = {
     read : read,
     write : write,
-    stats : stats
+    stat : stat
 };
