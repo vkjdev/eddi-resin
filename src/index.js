@@ -37,18 +37,18 @@ const KEY_PATH = path.resolve(__dirname, '../keys/key.pem'),
         // rejectUnauthorized : false
     };
     
-const client = mqtt.connect(config.CLOUD_URL, clientOptions),
-    data = {
-        [KEYS.power] : 357,
-        [KEYS.flowOut] : 657.91,
-        SALINITY:{
-            [KEYS.salinityDump] : 618,
-            [KEYS.salinityIn] : 384,
-            [KEYS.salinityOut] : 711,
-        }
+// const client = mqtt.connect(config.CLOUD_URL, clientOptions),
+//     data = {
+//         [KEYS.power] : 357,
+//         [KEYS.flowOut] : 657.91,
+//         SALINITY:{
+//             [KEYS.salinityDump] : 618,
+//             [KEYS.salinityIn] : 384,
+//             [KEYS.salinityOut] : 711,
+//         }
             
-    },
-    message = data;
+//     },
+//     message = data;
     
 
 // client.subscribe('messages');
@@ -61,28 +61,30 @@ const client = mqtt.connect(config.CLOUD_URL, clientOptions),
 // 	console.log('Connected');
 // });
 
-console.log('client', client)
+// console.log('client', client)
     
-client.subscribe(TOPIC.errors);
-client.subscribe('messages');
+// client.subscribe(TOPIC.errors);
+// client.subscribe('messages');
 // client.subscribe(TOPIC.presence);
 
-Object.keys(EVENTS).forEach(event => {
-    client.on(event, function(){
-        if(event === EVENTS.message) return;
-        console.log(`event ${event} : ${JSON.stringify([].slice.call(arguments))}`)
-        if(event === EVENTS.connect) publish();
-    });
-});
+// Object.keys(EVENTS).forEach(event => {
+//     client.on(event, function(){
+//         if(event === EVENTS.message) return;
+//         console.log(`event ${event} : ${JSON.stringify([].slice.call(arguments))}`)
+//         if(event === EVENTS.connect) publish();
+//     });
+// });
 
 
-client.on(EVENTS.message, (topic, message, trigger) => {
-    if(message && message.type === 'Buffer') return console.log('got message', message.data.toString('utf8'));
-    console.log('got unknown message', message);
-})
+// client.on(EVENTS.message, (topic, message, trigger) => {
+//     if(message && message.type === 'Buffer') return console.log('got message', message.data.toString('utf8'));
+//     console.log('got unknown message', message);
+// })
 
-function publish(){
-    client.publish(TOPIC.presence, JSON.stringify(message), function(){
-        console.log('published message', [].slice.call(arguments));
-    });
-}
+// function publish(){
+//     client.publish(TOPIC.presence, JSON.stringify(message), function(){
+//         console.log('published message', [].slice.call(arguments));
+//     });
+// }
+
+setInterval(() => undefined, 100000);
