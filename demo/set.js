@@ -58,8 +58,8 @@ function exportSetPin(pin, direction){
     return promise;
 }
 
-const pin = process.argv[1],
-    direction = process.argv[2] || DIRECTION.in;
+const pin = process.argv[2],
+    direction = process.argv[3] || DIRECTION.in;
 
 exportSetPin(pin, direction)
     .then(() => console.log(`Pin ${pin} successfully exported to ${direction}`))

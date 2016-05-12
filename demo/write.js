@@ -38,8 +38,8 @@ function write(pin, value){
         .then(() => fsPromises.read(valuePath));
 }
 
-const pin = process.argv[1],
-    value = process.argv[2];
+const pin = process.argv[2],
+    value = process.argv[3];
     
 write(pin, value)
     .then(readValue => console.log(`Pin ${pin} successfully written to ${value}: Current value is ${readValue}`))

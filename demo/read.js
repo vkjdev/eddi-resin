@@ -49,7 +49,7 @@ function read(pin){
     return fsPromises.read(filePath);
 }
 
-const pin = process.argv[1];
+const pin = process.argv[2];
 
 read(pin)
     .then(data => {
