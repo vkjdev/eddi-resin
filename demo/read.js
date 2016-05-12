@@ -41,15 +41,16 @@ function createGpioPath(pin){
 }
 
 function read(pin){
+    pin = pin.toLowerCase();
     let filePath,
         promise;
     if(GPIO[pin]) {
         filePath = createGpioPath(GPIO[pin]);
-        promise = fsPromises.read(filePath).then(value => [TYPES.digital, value]);
+        promise = fsPromises.read(filePath).then(value => [TYPES.digital, value.trim()]);
     }
     else if(ANALOG[pin.toLowerCase()]) {
-        filePath = createAnalogPath(ANALOG[pin.toLowerCase()]);
-        promise = fsPromises.read(filePath).then(value => [TYPES.analog, value]);
+        filePath = createAnalogPath(ANALOG[pin]);
+        promise = fsPromises.read(filePath).then(value => [TYPES.analog, value.trim()]);
     }
     else throw new Error(`Pin ${pin} is not a valid gpio or analog pin`);
     
