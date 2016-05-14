@@ -18,9 +18,9 @@ const GPIO_ROOT = '/sys/class/gpio',
         a0 : '0',
         a1 : '1',
         a2 : '2',
-        a3 : '3',
-        a4 : '4',
-        a5 : '5'
+        a3 : '5',
+        a4 : '6',
+        a5 : '7'
     },
     TYPES = {
         digital : 'digital',
