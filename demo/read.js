@@ -66,8 +66,8 @@ read(pin)
         
         console.log('raw', value);
         let calculated;
-        if(type === TYPES.analog) calculated = parseInt(value) * 2 * 0.439453125;
-        else calculated = DIGITAL_TYPES[type];
+        if(type === TYPES.analog) calculated = parseInt(value) * 2 * 0.439453125; // https://developer.artik.io/documentation/developer-guide/kernel-gpio.html#adc-interface 
+        else calculated = DIGITAL_TYPES[value];
         
         console.log(`${type} read on pin ${pin}: raw is "${value}", calculated is "${calculated}"`)
     })
