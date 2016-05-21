@@ -2,8 +2,13 @@ FROM resin/%%RESIN_MACHINE_NAME%%-node
 
 WORKDIR /usr/src/app
 
+RUN apt-get install git-all
+
 COPY package.json ./package.json
 RUN npm install
 
 COPY . /usr/src/app
-CMD [ "npm", "start" ]
+
+RUN chmod +x entry.sh
+
+CMD [ "./entry.sh" ]
