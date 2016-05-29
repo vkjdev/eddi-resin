@@ -6,3 +6,5 @@ git clone $GITHUB_ROOT/eddi-persist.git
 
 (cd eddi-persist && npm install)
 (cd eddi-controls && npm install)
+
+npm start

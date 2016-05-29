@@ -1,41 +1,41 @@
 'use strict';
-const mqtt = require('mqtt'),
-    path = require('path');
+// const mqtt = require('mqtt'),
+//     path = require('path');
     
-const config = require('./config');
+// const config = require('./config');
     
-const KEY_PATH = path.resolve(__dirname, '../keys/key.pem'),
-    CSR_PATH = path.resolve(__dirname, '../keys/csr.pem'),
-    PORT = 8883,
-    EVENTS = {
-        connect : 'connect',
-        reconnect : 'reconnect',
-        close : 'close',
-        offline : 'offline',
-        error : 'error',
-        message : 'message'
-    },
-    TOPIC = {
-        errors : `errors/${config.DEVICE_ID}`,
-        messages : `messages/${config.DEVICE_ID}`,
-        presence : 'presence'
-    },
-    KEYS = {
-        salinityIn : 'SALINITY_IN',
-        salinityOut : 'SALINITY_OUT',
-        flowOut : 'FLOW_OUT',
-        power : 'POWER_IN',
-        salinityDump : 'SALINITY_DUMP'
-    },
-    clientOptions = {
-        username : config.DEVICE_ID,
-        password : config.DEVICE_TOKEN,
-        keyPath : KEY_PATH,
-        certPath : CSR_PATH,
+// const KEY_PATH = path.resolve(__dirname, '../keys/key.pem'),
+//     CSR_PATH = path.resolve(__dirname, '../keys/csr.pem'),
+//     PORT = 8883,
+//     EVENTS = {
+//         connect : 'connect',
+//         reconnect : 'reconnect',
+//         close : 'close',
+//         offline : 'offline',
+//         error : 'error',
+//         message : 'message'
+//     },
+//     TOPIC = {
+//         errors : `errors/${config.DEVICE_ID}`,
+//         messages : `messages/${config.DEVICE_ID}`,
+//         presence : 'presence'
+//     },
+//     KEYS = {
+//         salinityIn : 'SALINITY_IN',
+//         salinityOut : 'SALINITY_OUT',
+//         flowOut : 'FLOW_OUT',
+//         power : 'POWER_IN',
+//         salinityDump : 'SALINITY_DUMP'
+//     },
+//     clientOptions = {
+//         username : config.DEVICE_ID,
+//         password : config.DEVICE_TOKEN,
+//         keyPath : KEY_PATH,
+//         certPath : CSR_PATH,
         // port : PORT,
         // host : config.CLOUD_URL,
         // rejectUnauthorized : false
-    };
+    // };
     
 // const client = mqtt.connect(config.CLOUD_URL, clientOptions),
 //     data = {
