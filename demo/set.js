@@ -26,6 +26,7 @@ const GPIO_ROOT = '/sys/class/gpio',
         in : 'in',
         out : 'out'
     };
+// usage : node set.js [pin] [direction]
 
 // create pin path
 function createGpioDirPath(pin){

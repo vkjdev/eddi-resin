@@ -26,13 +26,13 @@ function createGpioDirPath(pin){
     return `${GPIO_ROOT}/gpio${pin}`;
 }
 
-// 
+// usage : node write.js [pin] [value]
 
 function write(pin, value){
     const actualPin = GPIO[pin],
         actualValue = POSSIBLES[value.toLowerCase()];
     if(!actualPin) throw new Error(`Pin ${pin} is not a valid gpio pin`);
-    if(!actualValue) throw new Error(`${value} is not a valid gpio value`);
+    if(typeof actualValue != 'number') throw new Error(`${value} is not a valid gpio value`);
     const valuePath = `${createGpioDirPath(actualPin)}/value`;
     return fsPromises.write(valuePath, actualValue)
         .then(() => fsPromises.read(valuePath));

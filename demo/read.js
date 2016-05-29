@@ -30,7 +30,8 @@ const GPIO_ROOT = '/sys/class/gpio',
         1 : 'HIGH',
         0 : 'LOW'
     };
-   
+// usage : node read.js [pin]
+
 // create pin path 
 function createAnalogPath(pin){
     return `/sys/devices/12d10000.adc/iio:device0/in_voltage${pin}_raw`;
