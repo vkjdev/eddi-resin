@@ -11,6 +11,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mqtt": "^1.10.0"
   }
 }
