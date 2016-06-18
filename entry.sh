@@ -4,17 +4,17 @@ PERSIST=eddi-persist
 CONTROLS=eddi-controls
 
 if [ -d "$PERSIST" ]; then
-    (cd $PERSIST && git pull origin master && npm install & npm start &)
+    (cd $PERSIST && git pull origin master && npm install && npm start &)
 else
     git clone $GITHUB_ROOT/$PERSIST.git
-    (cd $PERSIST && npm install & npm start &)
+    (cd $PERSIST && npm install && npm start &)
 fi
 
 if [ -d "$CONTROLS" ]; then
-    (cd $CONTROLS && git pull origin master && npm install npm start &)
+    (cd $CONTROLS && git pull origin master && npm install && npm start &)
 else
     git clone $GITHUB_ROOT/$CONTROLS.git
-    (cd $CONTROLS && npm install & npm start &)
+    (cd $CONTROLS && npm install && npm start &)
 fi
 
 npm start
