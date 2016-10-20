@@ -1,15 +1,14 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-node:4.4
+FROM resin/%%RESIN_MACHINE_NAME%%-node:4.6
 
 WORKDIR /usr/src/app
 
 RUN apt-get update \
     && apt-get install -y \
         git \
-        vim-enhanced \
+        vim \
     && apt-get clean
 
 COPY package.json ./package.json
-RUN npm install
 
 COPY . /usr/src/app
 
